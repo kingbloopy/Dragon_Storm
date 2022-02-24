@@ -1,5 +1,5 @@
 
-# Welcome to ~
+# Welcome to DRAGON STORM
 
 <img src="logo.png" alt="logo" width="500"/>
 
