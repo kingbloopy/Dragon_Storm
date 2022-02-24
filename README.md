@@ -78,6 +78,7 @@ This game will be implemented using:
     - Focus on styling texts and fine tune formatting
   - ***Thurday Morning:***
     - Fine tune any last things
+    - Update production README
     - Put project onto GitHub pages
 
 ## Bonus Features
