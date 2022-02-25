@@ -1,7 +1,7 @@
 
 # Welcome to DRAGON STORM
 
-<img src="logo.png" alt="logo" width="500"/>
+<img src="./assets/logo.png" alt="logo" width="500"/>
 
 As you fly over the span of a green medieval countryside, signs of human civilization will begin to appear from the horizon. Your dragon duties include burning down as many structures/targets as you can, for as long as you can. As you continue to soar and light up the countryside with fire, the dragon will gradually fly faster and faster from excitement, causing it to become more difficult to fly and aim. With this is mind, you must also avoid the dangerous mountains that will hurt the dragon and end the game if you fly into one!
 
@@ -39,7 +39,7 @@ In addition, the game will include:
 
 ## Wireframes
 
-<img src="mock_layout.png" alt="logo" width="700"/>
+<img src="./assets/mock_layout.png" alt="logo" width="700"/>
 
 - Buttons on the top right corner for mute/unmute, play/pause, and exit game
 - Logo in top left will bring you back to the home page with main logo and instructions module
