@@ -14,7 +14,7 @@ class Dragon {
 
   startmove(){
     if (this.ydim !== 520){
-      this.ctx.clearRect(0, 0, 737, 720);
+      this.ctx.clearRect(this.xdim, this.ydim, 200, 200);
       this.ydim -= 1;
       this.draw();
     }
