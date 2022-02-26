@@ -52,15 +52,61 @@ table {
 }
 
 .logo {
-  height: 90px;
-  width: 115px;
+  height: 112px;
+  width: 138px;
+  margin-left: 6%;
+  margin-top: 3%;
+}
+@media (max-width: 1100px) {
+  .logo {
+    height: 62px;
+    width: 80px;
+    margin-left: 4%;
+    margin-top: 2%;
+  }
+}
+
+.upper-nav {
+  display: flex;
   position: absolute;
-  margin-left: 74px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.unmute {
+  height: 50px;
+  width: 50px;
+  margin-right: 16px;
+}
+
+.pause {
+  height: 50px;
+  width: 50px;
+  margin-right: 16px;
+}
+
+.x {
+  height: 50px;
+  width: 50px;
+  margin-right: 16px;
+}
+
+.right-nav {
+  margin-right: 40px;
   margin-top: 20px;
+  display: flex;
+}
+@media (max-width: 1200px) {
+  .right-nav {
+    flex-direction: column;
+  }
+  .right-nav img {
+    margin-bottom: 20px;
+  }
 }
 
 .background {
-  background-image: url("/assets/background.png");
+  background-image: url("/assets/canvas_background/background.png");
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -72,7 +118,7 @@ table {
 }
 
 canvas {
-  background-image: url("/assets/canvas.png");
+  background-image: url("/assets/canvas_background/canvas.png");
   height: 100vh;
   background-size: cover;
 }
