@@ -1,20 +1,43 @@
+// import MovingObject from "./moving_object";
 
 class Fire {
-  constructor(ctx, pos){
-    this.ctx = ctx;
+  constructor(ctx, pos, xdim, ydim, speed, increaseSize){
     this.sprite = new Image();
     this.sprite.src = "assets/fire_sprite.png";
-    this.frameWidth = 140;
-    this.frameHeight = 160;
+    this.ctx = ctx;
+    this.pos = pos;
+    this.xdim = xdim;
+    this.ydim = xdim
+    this.speed = speed;
+    this.increaseSize = increaseSize;
     this.spriteWidth = 468;
     this.spriteHeight = 498;
     this.currentFrame = 0;
-    this.animate(pos);
+    // this.animate();
+    // this.draw();
   }
 
-  animate(pos){
+  drawFire(){
+    console.log('hitting function');
 
-    setInterval(() => {
+    this.ctx.drawImage(this.sprite, this.pos[0], this.pos[1], this.xdim, this.ydim);
+    // let col = this.currentFrame % 5;
+    // let row = Math.floor(this.currentFrame / 5);
+
+    // this.ctx.drawImage(
+    //   this.sprite,
+    //   col * this.spriteWidth,
+    //   row * this.spriteHeight,
+    //   this.spriteWidth,
+    //   this.spriteHeight,
+    //   this.pos[0],
+    //   this.pos[1],
+    //   this.xdim,
+    //   this.ydim
+    // );
+  }
+
+  animate(){
       this.currentFrame++;
 
       const maxFrame = 24;
@@ -23,20 +46,22 @@ class Fire {
       let col = this.currentFrame % 5;
       let row = Math.floor(this.currentFrame/5);
 
-      this.ctx.clearRect(pos[0], pos[1], this.frameWidth, this.frameHeight);
+      this.ctx.clearRect(this.pos[0], this.pos[1], this.xdim, this.ydim);
+
       this.ctx.drawImage(
         this.sprite, 
         col * this.spriteWidth, 
         row * this.spriteHeight, 
         this.spriteWidth,
         this.spriteHeight,
-        pos[0], 
-        pos[1],
-        this.frameWidth,
-        this.frameHeight
+        this.pos[0], 
+        this.pos[1],
+        this.xdim,
+        this.ydim
         );
-    }, 70);
+    requestAnimationFrame(this.animate.bind(this));
   }
+
 }
 
 export default Fire;

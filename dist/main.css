@@ -117,8 +117,22 @@ table {
   justify-content: center;
 }
 
-canvas {
+.bottom-layer {
   background-image: url("/assets/canvas_background/canvas.png");
   height: 100vh;
   background-size: cover;
+}
+
+.top-layer {
+  height: 100vh;
+  background-size: cover;
+  position: absolute;
+}
+
+.dragon {
+  display: none;
+}
+
+.fire-dragon {
+  display: none;
 }

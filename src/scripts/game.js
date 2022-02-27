@@ -2,16 +2,31 @@ import Dragon from "./dragon";
 import Fire from "./fire_sprite";
 
 class Game {
-  constructor(ctx){
-    this.ctx = ctx;
-    this.dragon = new Dragon(ctx);
-    this.enterDragon();
-    // this.fire = new Fire(ctx, [300,300]);
+  constructor(ctx1, ctx2){
+    this.ctx1 = ctx1;
+    this.ctx2 = ctx2;
+    this.dragon = new Dragon(ctx1);
+    this.blowFire = this.dragon.blowFire();
+    this.animateDragon();
+  }
+  
+  moveHoriz(moveLeft, moveRight){
+    this.dragon.flyLeft = moveLeft;
+    this.dragon.flyRight = moveRight;
+  }
+  
+  moveVert(moveUp, moveDown){
+    this.dragon.flyUp = moveUp;
+    this.dragon.flyDown = moveDown
+  }
+  
+  animateDragon() {
+    this.dragon.startmove();
+    this.dragon.flyHoriz();
+    this.dragon.flyVert();
+    requestAnimationFrame(this.animateDragon.bind(this));
   }
 
-  enterDragon(){
-    setInterval(() => this.dragon.startmove(), 20);
-  }
 }
 
 export default Game;

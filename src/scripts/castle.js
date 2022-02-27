@@ -1,4 +1,5 @@
 // import Fire from "./fire_sprite";
+import Fire from "./fire_sprite";
 import MovingObject from "./moving_object";
 
 const castle1 = new Image();
@@ -16,24 +17,33 @@ class Castle extends MovingObject {
   constructor(ctx){
     super(ctx);
     this.castle = castles[Math.floor(Math.random() * castles.length)];
-    this.hit = true;
     this.pos = Castle.getRandPos();
-    this.xdim = 80;
-    this.ydim = 60;
   }
   
   draw(){
-    // this.ctx.drawImage(this.castle, this.pos[0], this.pos[1], this.xdim, this.ydim);
-    this.ctx.drawImage(this.castle, this.pos[0], this.pos[1], 300, 200);
+    this.ctx.drawImage(this.castle, this.pos[0], this.pos[1], this.xdim, this.ydim);
   }
 
   move(){
-    setInterval(() => {
-      this.ctx.clearRect(this.pos[0], this.pos[1], this.xdim, this.ydim);
-      this.pos[1] += 2;
+    this.ctx.clearRect(
+      this.pos[0], 
+      this.pos[1], 
+      this.xdim, 
+      this.ydim
+      );
+
+    this.pos[1] += this.speed;
+    this.pos[0] -= 0.2;
+    this.xdim += this.increaseSize;
+    this.ydim += this.increaseSize;
+
+    if (this instanceof Castle){
       this.draw();
-      // this.ctx.clearRect(0, 0, 720, 737);
-    }, 20);
+    } else {
+      this.drawFire();
+    }
+    
+    requestAnimationFrame(this.move.bind(this));
   }
 }
 
