@@ -18,6 +18,7 @@ class Castle extends MovingObject {
     super(ctx);
     this.castle = castles[Math.floor(Math.random() * castles.length)];
     this.pos = Castle.getRandPos();
+    this.move();
   }
   
   draw(){
@@ -33,16 +34,11 @@ class Castle extends MovingObject {
       );
 
     this.pos[1] += this.speed;
-    this.pos[0] -= 0.2;
+    this.pos[0] -= 0.27;
     this.xdim += this.increaseSize;
     this.ydim += this.increaseSize;
 
-    if (this instanceof Castle){
-      this.draw();
-    } else {
-      this.drawFire();
-    }
-    
+    this.draw();
     requestAnimationFrame(this.move.bind(this));
   }
 }
