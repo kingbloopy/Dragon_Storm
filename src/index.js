@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   window.Dragon = Dragon;
   window.Castle = Castle;
   window.Fire = Fire;
-  const game = new Game(ctx1, ctx2);
+  window.game = new Game(ctx1, ctx2);
 
   let moveLeft = false;
   let moveRight = false;
@@ -64,5 +64,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
       game.moveVert(moveUp, moveDown);
     }
   });
+  
 
 });

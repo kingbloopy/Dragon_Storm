@@ -14,32 +14,16 @@ castle4.src = "assets/objects/castle_2_pink.png";
 const castles = [castle1, castle2, castle3, castle4];
 
 class Castle extends MovingObject {
-  constructor(ctx){
-    super(ctx);
+  constructor(ctx, speed, increaseSize){
+    super(ctx, speed, increaseSize);
     this.castle = castles[Math.floor(Math.random() * castles.length)];
-    this.pos = Castle.getRandPos();
+    this.points = 10;
     this.move();
+    // this.draw();
   }
   
   draw(){
     this.ctx.drawImage(this.castle, this.pos[0], this.pos[1], this.xdim, this.ydim);
-  }
-
-  move(){
-    this.ctx.clearRect(
-      this.pos[0], 
-      this.pos[1], 
-      this.xdim, 
-      this.ydim
-      );
-
-    this.pos[1] += this.speed;
-    this.pos[0] -= 0.27;
-    this.xdim += this.increaseSize;
-    this.ydim += this.increaseSize;
-
-    this.draw();
-    requestAnimationFrame(this.move.bind(this));
   }
 }
 
