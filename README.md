@@ -16,9 +16,8 @@ SPACE KEY
 ```
 
 ### Structures / targets to light on fire:
-  - `Castles: 10 pts`
-  - `Villages: 8 pts`
-  - `Homes: 6 pts`
+  - `Castles: 8 pts`
+  - `Villages: 6 pts`
   - `Sheep: 4 pts`
   - `Trees: 2 pts`
 

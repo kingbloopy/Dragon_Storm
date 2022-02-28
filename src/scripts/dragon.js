@@ -16,26 +16,6 @@ class Dragon {
     this.aimPos = [(this.xPos + 87), (this.yPos - 10)];
   }
 
-  // inFireZone(dragonPos) {
-  //   const targetZone = [
-  //     (this.centerPos[0] + this.xdim / 4),
-  //     (this.centerPos[1] + this.ydim / 4),
-  //     (this.centerPos[0] - this.xdim / 4),
-  //     (this.centerPos[1] - this.ydim / 4)
-  //   ];
-  //   console.log(targetZone);
-
-  //   if (
-  //     (dragonPos[0] <= targetZone[0])
-  //     && (dragonPos[0] >= targetZone[2])
-  //     && (dragonPos[1] <= targetZone[1])
-  //     && (dragonPos[1] >= targetZone[3])
-  //   ) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
   inFireZone(element){
     // console.log(element);
     // console.log(element.centerPos);
@@ -47,7 +27,6 @@ class Dragon {
       (target[1] - element.ydim/4)
     ];
 
-    // add logic later to also have yaxis be on lower part of screen
     if (
       (this.aimPos[0] <= targetZone[0])
       && (this.aimPos[0] >= targetZone[2])
@@ -96,16 +75,6 @@ class Dragon {
       this.draw();
     }
   }
-
-  // triggerFire() {
-  //   document.addEventListener('keydown', e => {
-  //     if (e.code === 'SPACE') {
-  //       // if (this.inFireZone(currentDragonPos)){
-  //       this.onFire();
-  //       // }
-  //     }
-  //   });
-  // }
 
   flyHoriz() {
     if (this.flyLeft && this.xPos > 20){

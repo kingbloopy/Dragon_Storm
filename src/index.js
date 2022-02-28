@@ -2,6 +2,7 @@ import Dragon from "./scripts/dragon";
 import Game from "./scripts/game";
 import Castle from "./scripts/castle";
 import Fire from "./scripts/fire_sprite";
+import Village from "./scripts/village"
 
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log(`Yay, it's Dragon Time!`);
@@ -13,10 +14,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const ctx2 = canvas2.getContext('2d');
   window.ctx2 = ctx2
 
-  window.Game = Game;
+  // window.Game = Game;
   window.Dragon = Dragon;
   window.Castle = Castle;
-  window.Fire = Fire;
+  // window.Fire = Fire;
+  window.Village = Village;
   window.game = new Game(ctx1, ctx2);
 
   let moveLeft = false;

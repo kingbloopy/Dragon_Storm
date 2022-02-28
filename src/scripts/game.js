@@ -1,5 +1,6 @@
 import Dragon from "./dragon";
-import MovingObject from "./moving_object";
+import Castle from "./castle";
+import Village from "./Village";
 
 class Game {
   constructor(ctx1, ctx2){
@@ -14,11 +15,11 @@ class Game {
     this.dragon = new Dragon(ctx1);
     this.blowFire = this.dragon.blowFire();
     this.animateDragon();
-    this.generateObjects();
+    // this.generateObjects();
   }
 
   generateObjects(){
-    const categories = [Castle];
+    const categories = [Castle, Village];
     setInterval(() => {
       let randEle = categories[Math.floor(Math.random() * categories.length)]
       let element = new randEle(this.ctx2, this.speed, this.increaseSize);

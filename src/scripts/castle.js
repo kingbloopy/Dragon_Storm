@@ -1,5 +1,3 @@
-// import Fire from "./fire_sprite";
-import Fire from "./fire_sprite";
 import MovingObject from "./moving_object";
 
 const castle1 = new Image();
@@ -17,7 +15,7 @@ class Castle extends MovingObject {
   constructor(ctx, speed, increaseSize){
     super(ctx, speed, increaseSize);
     this.castle = castles[Math.floor(Math.random() * castles.length)];
-    this.points = 10;
+    this.points = 8;
     this.move();
     // this.draw();
   }
