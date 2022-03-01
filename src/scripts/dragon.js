@@ -1,3 +1,4 @@
+import Mountain from "./mountain";
 
 class Dragon {
   constructor(ctx){
@@ -14,11 +15,11 @@ class Dragon {
     this.flyDown = false;
     this.fire = false;
     this.aimPos = [(this.xPos + 87), (this.yPos - 10)];
+    this.centerPos = [(this.xPos + 88), (this.yPos + 80)];
   }
 
   inFireZone(element){
-    // console.log(element);
-    // console.log(element.centerPos);
+    // if (element.centerPos === undefined) console.log(true);
     const target = element.centerPos;
     const targetZone = [
       (target[0] + element.xdim/4),
@@ -38,13 +39,52 @@ class Dragon {
     return false;
   }
 
+  
+  inHitZone(element) {
+    if (element instanceof Mountain){
+      const center = element.centerPos;
+      const dragonHitZone = [
+        (this.centerPos[0] + 100), 
+        (this.centerPos[0] - 100),
+        (this.centerPos[1] + 50),
+        (this.centerPos[1] - 50)
+      ];
+      console.log(dragonHitZone);
+      console.log(element.centerPos);
+      console.log(this.centerPos);
+
+      if (
+        (center[0] >= dragonHitZone[0])
+        && (center[0] <= dragonHitZone[1])
+        && (center[1] >= dragonHitZone[3])
+        && (center[1] <= dragonHitZone[4]) 
+      ){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // findCenter(){
+  //   this.ctx.fillStyle = 'pink';
+  //   this.ctx.fillRect(this.centerPos[0], this.centerPos[1], 3, 3);  
+  // }
+  
+  // hitMountain(element) {
+  //   if (element instanceof Mountain && this.inFireZone(element)) {
+  //     element.hit = true;
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
   blowFire(element) {
     document.addEventListener('keydown', e => {
       if (e.code === 'Space') {
         this.fire = true;
         this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
         this.draw();
-        if (this.inFireZone(element)) {
+        if (this.inFireZone(element) && !(element instanceof Mountain)) {
           element.hit = true;
           element.onFire();
         }
@@ -71,20 +111,23 @@ class Dragon {
     if (this.yPos >= 520){
       this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
       this.aimPos = [(this.xPos + 87), (this.yPos - 10)];
+      this.centerPos = [(this.xPos + 88), (this.yPos + 80)];
       this.yPos -= 1;
       this.draw();
     }
   }
 
   flyHoriz() {
-    if (this.flyLeft && this.xPos > 20){
+    if (this.flyLeft && this.xPos >= 0){
       this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
       this.aimPos = [(this.xPos + 87), (this.yPos - 10)];
+      this.centerPos = [(this.xPos + 88), (this.yPos + 80)];
       this.xPos -= 5;
       this.draw();
-    } else if (this.flyRight && this.xPos < 530){
+    } else if (this.flyRight && this.xPos < 552){
       this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
       this.aimPos = [(this.xPos + 87), (this.yPos - 10)];
+      this.centerPos = [(this.xPos + 88), (this.yPos + 80)];
       this.xPos += 5;
       this.draw();
     }
@@ -94,11 +137,13 @@ class Dragon {
     if (this.flyUp && this.yPos > 200) {
       this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
       this.aimPos = [(this.xPos + 87), (this.yPos - 10)];
+      this.centerPos = [(this.xPos + 88), (this.yPos + 80)];
       this.yPos -= 5;
       this.draw();
     } else if (this.flyDown && this.yPos < 515) {
       this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
       this.aimPos = [(this.xPos + 87), (this.yPos - 10)];
+      this.centerPos = [(this.xPos + 88), (this.yPos + 80)];
       this.yPos += 5;
       this.draw();
     }

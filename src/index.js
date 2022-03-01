@@ -1,8 +1,10 @@
 import Dragon from "./scripts/dragon";
 import Game from "./scripts/game";
 import Castle from "./scripts/castle";
-import Fire from "./scripts/fire_sprite";
 import Village from "./scripts/village"
+import Sheep from "./scripts/sheep";
+import Tree from "./scripts/tree";
+import Mountain from "./scripts/mountain";
 
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log(`Yay, it's Dragon Time!`);
@@ -19,6 +21,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
   window.Castle = Castle;
   // window.Fire = Fire;
   window.Village = Village;
+  window.Sheep = Sheep;
+  window.Tree = Tree;
+  window.Mountain = Mountain;
   window.game = new Game(ctx1, ctx2);
 
   let moveLeft = false;

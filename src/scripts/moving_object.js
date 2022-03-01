@@ -40,7 +40,7 @@ class MovingObject {
     );
 
     this.pos[1] += this.speed;
-    this.pos[0] -= 0.27;
+    this.pos[0] -= 0.25;
     this.xdim += this.increaseSize;
     this.ydim += this.increaseSize;
 
