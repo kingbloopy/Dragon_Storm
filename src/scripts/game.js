@@ -19,7 +19,7 @@ class Game {
     this.blowFire = this.dragon.blowFire();
     this.gameOver = false;
     this.animateDragon();
-    // this.generateObjects();
+    this.generateObjects();
     // this.isGameOver();
   }
 
@@ -29,7 +29,7 @@ class Game {
       let randEle = categories[Math.floor(Math.random() * categories.length)]
       let element = new randEle(this.ctx2, this.speed, this.increaseSize);
       this.dragon.blowFire(element);
-      if (this.dragon.hitMountain(element)) this.gameOver = true;
+      // if (this.dragon.hitMountain(element)) this.gameOver = true;
     }, this.frequency);
   }
 

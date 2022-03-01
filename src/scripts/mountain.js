@@ -19,8 +19,8 @@ class Mountain {
       (this.pos[0] + (this.xdim / 2)),
       (this.pos[1] + (this.ydim / 2))
     ];
-    // this.move();
-    this.draw();
+    this.move();
+    // this.draw();
   }
 
     findCenter(){
