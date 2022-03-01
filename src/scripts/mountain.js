@@ -26,8 +26,7 @@ class Mountain {
     this.ctx.fillRect(
       this.centerPos[0],
       this.centerPos[1],
-      (this.xdim / 4),
-      (this.ydim / 4)
+      5, 5
       // this.xdim/2,
       // this.ydim/2
       );

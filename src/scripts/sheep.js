@@ -7,6 +7,7 @@ class Sheep extends MovingObject {
     this.sheeps.src = "./assets/objects/sheeps3.png";
     this.points = 4;
     this.increaseSize = increaseSize - 0.3;
+    // this.draw();
     this.move();
   }
 
