@@ -6,15 +6,13 @@ class Mountain {
     this.increaseSize = increaseSize + 0.5;
     this.mountain = new Image();
     this.mountain.src = "./assets/objects/mountain.png";
+    this.xdim = 17;
+    this.ydim = 10;
+    this.pos = Mountain.getRandPos();
+    // this.xdim = 200;
+    // this.ydim = 180;
     this.hit = false;
-    // this.xdim = 17;
-    // this.ydim = 10;
-    this.hit = false;
-    // this.pos = Mountain.getRandPos();
-    this.xdim = 200;
-    this.ydim = 180;
-    this.hit = false;
-    this.pos = [300, 200]
+    // this.pos = [300, 200]
     this.centerPos = [
       (this.pos[0] + (this.xdim / 2)),
       (this.pos[1] + (this.ydim / 2))

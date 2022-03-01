@@ -20,6 +20,9 @@ class Dragon {
 
   inFireZone(element){
     // if (element.centerPos === undefined) console.log(true);
+    // console.log(element);
+    // console.log(element.centerPos);
+
     const target = element.centerPos;
     const targetZone = [
       (target[0] + element.xdim/4),
@@ -98,7 +101,7 @@ class Dragon {
       }
     });
   }
-  
+
   draw(){
     if (this.fire){
       this.ctx.drawImage(this.fireDragon, this.xPos, this.yPos, 200, 200);

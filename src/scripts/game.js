@@ -1,6 +1,6 @@
 import Dragon from "./dragon";
 import Castle from "./castle";
-import Village from "./Village";
+import Village from "./village";
 import Sheep from "./sheep";
 import Tree from "./tree";
 import Mountain from "./mountain";
@@ -25,6 +25,7 @@ class Game {
 
   generateObjects(){
     const categories = [Castle, Village, Sheep, Tree, Mountain];
+    // let randEle = categories[Math.floor(Math.random() * categories.length)]
     setInterval(() => {
       let randEle = categories[Math.floor(Math.random() * categories.length)]
       let element = new randEle(this.ctx2, this.speed, this.increaseSize);
