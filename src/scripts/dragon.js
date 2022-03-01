@@ -16,19 +16,17 @@ class Dragon {
     this.fire = false;
     this.aimPos = [(this.xPos + 87), (this.yPos - 10)];
     this.centerPos = [(this.xPos + 88), (this.yPos + 80)];
+    this.currentTarget = false;
   }
 
-  inFireZone(element){
-    // if (element.centerPos === undefined) console.log(true);
-    // console.log(element);
-    // console.log(element.centerPos);
+  inFireZone(){
 
-    const target = element.centerPos;
+    const target = this.currentTarget.centerPos;
     const targetZone = [
-      (target[0] + element.xdim/4),
-      (target[1] + element.ydim/4),
-      (target[0] - element.xdim/4),
-      (target[1] - element.ydim/4)
+      (target[0] + this.currentTarget.xdim/4),
+      (target[1] + this.currentTarget.ydim/4),
+      (target[0] - this.currentTarget.xdim/4),
+      (target[1] - this.currentTarget.ydim/4)
     ];
 
     if (
@@ -43,9 +41,9 @@ class Dragon {
   }
 
   
-  inHitZone(element) {
-    if (element instanceof Mountain){
-      const center = element.centerPos;
+  inHitZone() {
+    if (this.currentTarget instanceof Mountain){
+      const center = this.currentTarget.centerPos;
       const dragonHitZone = [
         (this.centerPos[0] + 100), 
         (this.centerPos[0] - 100),
@@ -53,7 +51,7 @@ class Dragon {
         (this.centerPos[1] - 50)
       ];
       console.log(dragonHitZone);
-      console.log(element.centerPos);
+      console.log(this.currentTarget.centerPos);
       console.log(this.centerPos);
 
       if (
@@ -81,25 +79,35 @@ class Dragon {
   //   return false;
   // }
 
-  blowFire(element) {
-    document.addEventListener('keydown', e => {
-      if (e.code === 'Space') {
-        this.fire = true;
-        this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
-        this.draw();
-        if (this.inFireZone(element) && !(element instanceof Mountain)) {
-          element.hit = true;
-          element.onFire();
-        }
+  blowFire() {
+    document.addEventListener('keydown', this.downFunc.bind(this));
+    document.addEventListener('keyup', this.upFunc.bind(this));
+  }
+
+  downFunc(e){
+    if (e.code === 'Space') {
+      this.fire = true;
+      this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
+      this.draw();
+      if (this.inFireZone(this.currentTarget) && !(this.currentTarget instanceof Mountain)) {
+        this.currentTarget.hit = true;
+        this.currentTarget.onFire();
       }
-    });
-    document.addEventListener('keyup', e => {
-      if (e.code === 'Space') {
-        this.fire = false;
-        this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
-        this.draw();
-      }
-    });
+    }
+    if (this.currentTarget.pos[1] > 700){
+      document.removeEventListener('keydown', this.downFunc);
+    }
+  }
+
+  upFunc(e){
+    if (e.code === 'Space') {
+      this.fire = false;
+      this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
+      this.draw();
+    }
+    if (this.currentTarget.pos[1] > 700) {
+      document.removeEventListener('keydown', this.upFunc);
+    }
   }
 
   draw(){

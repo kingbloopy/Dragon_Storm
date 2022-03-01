@@ -15,6 +15,7 @@ class Game {
     // this.frequency = 3000;
     // this.speed = 3;
     // this.increaseSize = 1.3;
+    // this.elements = [];
     this.dragon = new Dragon(ctx1);
     this.blowFire = this.dragon.blowFire();
     this.gameOver = false;
@@ -25,11 +26,11 @@ class Game {
 
   generateObjects(){
     const categories = [Castle, Village, Sheep, Tree, Mountain];
-    // let randEle = categories[Math.floor(Math.random() * categories.length)]
     setInterval(() => {
       let randEle = categories[Math.floor(Math.random() * categories.length)]
       let element = new randEle(this.ctx2, this.speed, this.increaseSize);
-      this.dragon.blowFire(element);
+      this.dragon.currentTarget = element;
+      this.dragon.blowFire();
       // if (this.dragon.hitMountain(element)) this.gameOver = true;
     }, this.frequency);
   }
