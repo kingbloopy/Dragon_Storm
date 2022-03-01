@@ -7,11 +7,11 @@ class MovingObject {
     this.increaseSize = increaseSize;
     this.xdim = 17;
     this.ydim = 10;
-    // this.xdim = 200;
-    // this.ydim = 180;
+    // this.xdim = 100;
+    // this.ydim = 80;
     this.hit = false;
     this.pos = MovingObject.getRandPos();
-    // this.pos = [300, 200]
+    // this.pos = [500, 500];
     this.centerPos = [
       (this.pos[0] + (this.xdim / 2)),
       (this.pos[1] + (this.ydim / 2))
@@ -53,17 +53,17 @@ class MovingObject {
     requestAnimationFrame(this.move.bind(this));
   }
 
-  // findCenter(){
-  //   this.ctx.fillStyle = 'pink';
-  //   this.ctx.fillRect(
-  //     this.centerPos[0], 
-  //     this.centerPos[1], 
-  //     (this.xdim / 4),
-  //     (this.ydim / 4)
-  //     // this.xdim/2, 
-  //     // this.ydim/2
-  //     );
-  // }
+  findCenter(){
+    this.ctx.fillStyle = 'pink';
+    this.ctx.fillRect(
+      this.centerPos[0], 
+      this.centerPos[1], 
+      (this.xdim / 4),
+      (this.ydim / 4)
+      // this.xdim/2, 
+      // this.ydim/2
+      );
+  }
 }
 
 export default MovingObject;

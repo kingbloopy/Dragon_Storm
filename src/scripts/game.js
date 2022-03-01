@@ -12,30 +12,81 @@ class Game {
     this.speed = 1;
     this.increaseSize = 0.6;
     this.frequency = 4000;
+    this.currentTargets = [];
     // this.frequency = 3000;
     // this.speed = 3;
     // this.increaseSize = 1.3;
     this.dragon = new Dragon(ctx1);
-    this.blowFire = this.dragon.blowFire();
     this.gameOver = false;
     this.animateDragon();
-    this.generateObjects();
-    // this.isGameOver();
+    this.blowFire();
+    this.generateTargets();
   }
 
-  generateObjects(){
-    const categories = [Castle, Village, Sheep, Tree, Mountain];
-    // let randEle = categories[Math.floor(Math.random() * categories.length)]
-    setInterval(() => {
+  generateTargets(){
+    const categories = [Sheep, Tree, Castle, Village];
+    this.generateTargetsId = setInterval(() => {
       let randEle = categories[Math.floor(Math.random() * categories.length)]
       let element = new randEle(this.ctx2, this.speed, this.increaseSize);
-      this.dragon.blowFire(element);
-      // if (this.dragon.hitMountain(element)) this.gameOver = true;
+      this.currentTargets.push(element);
+      this.checkBurnConditions();
+
+      setTimeout(() => {
+        this.currentTargets.shift();
+      }, this.frequency*2);
+
     }, this.frequency);
   }
 
-  isGameOver(){
-    if(this.gameOver === true) console.log('game over!');
+  checkBurnConditions(){
+    for (let i = 0; i < this.currentTargets.length; i++){
+      let element = this.currentTargets[i];
+      document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space'){
+          if (this.inFireZone(element)){
+            element.hit = true;
+            element.onFire();
+          }
+        }
+      });
+    }
+  }
+
+  inFireZone(element) {
+    const target = element.centerPos;
+    const targetZone = [
+      (target[0] + element.xdim / 3),
+      (target[0] - element.xdim / 3),
+      (target[1] + element.ydim / 2),
+      (target[1] - element.xdim / 2)
+    ];
+
+    if (
+      (this.dragon.aimPos[0] <= targetZone[0])
+      && (this.dragon.aimPos[0] >= targetZone[1])
+      && (this.dragon.aimPos[1] <= targetZone[2])
+      && (this.dragon.aimPos[1] >= targetZone[3])
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  blowFire() {
+    document.addEventListener('keydown', e => {
+      if (e.code === 'Space') {
+        this.dragon.fire = true;
+        this.ctx1.clearRect(this.dragon.xPos, this.dragon.yPos, 200, 200);
+        this.dragon.draw();
+      }
+    });
+    document.addEventListener('keyup', e => {
+      if (e.code === 'Space') {
+        this.dragon.fire = false;
+        this.ctx1.clearRect(this.dragon.xPos, this.dragon.yPos, 200, 200);
+        this.dragon.draw();
+      }
+    });
   }
   
   moveHoriz(moveLeft, moveRight){
