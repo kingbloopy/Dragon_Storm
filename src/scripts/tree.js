@@ -1,11 +1,11 @@
 import MovingObject from "./moving_object";
 
 const tree1 = new Image();
-tree1.src = "assets/objects/tree_1.png";
+tree1.src = "./assets/objects/tree_1.png";
 const tree2 = new Image();
-tree2.src = "assets/objects/tree_2.png";
+tree2.src = "./assets/objects/tree_2.png";
 const tree3 = new Image();
-tree3.src = "assets/objects/tree_3.png";
+tree3.src = "./assets/objects/tree_3.png";
 
 const trees = [tree1, tree2, tree3];
 

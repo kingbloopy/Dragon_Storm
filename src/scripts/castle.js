@@ -1,13 +1,13 @@
 import MovingObject from "./moving_object";
 
 const castle1 = new Image();
-castle1.src = "assets/objects/castle_1_pink.png";
+castle1.src = "./assets/objects/castle_1_pink.png";
 const castle2 = new Image();
-castle2.src = "assets/objects/castle_1_yellow.png";
+castle2.src = "./assets/objects/castle_1_yellow.png";
 const castle3 = new Image();
-castle3.src = "assets/objects/castle_2_blue.png";
+castle3.src = "./assets/objects/castle_2_blue.png";
 const castle4 = new Image();
-castle4.src = "assets/objects/castle_2_pink.png";
+castle4.src = "./assets/objects/castle_2_pink.png";
 
 const castles = [castle1, castle2, castle3, castle4];
 

@@ -3,7 +3,7 @@
 class Fire {
   constructor(ctx, pos, xdim, ydim, speed, increaseSize){
     this.sprite = new Image();
-    this.sprite.src = "assets/fire_sprite.png";
+    this.sprite.src = "./assets/fire_sprite.png";
     this.ctx = ctx;
     this.pos = pos;
     this.xdim = xdim;

@@ -4,7 +4,7 @@ class Sheep extends MovingObject {
   constructor(ctx, speed, increaseSize){
     super(ctx, speed);
     this.sheeps = new Image();
-    this.sheeps.src = "assets/objects/sheeps3.png";
+    this.sheeps.src = "./assets/objects/sheeps3.png";
     this.points = 4;
     this.increaseSize = increaseSize - 0.3;
     this.move();
