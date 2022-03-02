@@ -1,34 +1,65 @@
-import Dragon from "./scripts/dragon";
+
 import Game from "./scripts/game";
-import Castle from "./scripts/castle";
-import Village from "./scripts/village"
-import Sheep from "./scripts/sheep";
-import Tree from "./scripts/tree";
-import Mountain from "./scripts/mountain";
-import GameOver from "./scripts/game_over";
-import Cloud from "./scripts/cloud";
 
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log(`Yay, it's Dragon Time!`);
 
   const canvas1 = document.getElementsByClassName('top-layer')[0]
   const ctx1 = canvas1.getContext('2d');
-  window.ctx1 = ctx1;
   const canvas2 = document.getElementsByClassName('bottom-layer')[0];
   const ctx2 = canvas2.getContext('2d');
-  window.ctx2 = ctx2
+  const canvas3 = document.getElementsByClassName('very-bottom-layer')[0];
+  const ctx3 = canvas3.getContext('2d');
 
-  // window.Game = Game;
-  window.Dragon = Dragon;
-  window.Castle = Castle;
-  // window.Fire = Fire;
-  window.Village = Village;
-  window.Sheep = Sheep;
-  window.Tree = Tree;
-  window.Mountain = Mountain;
-  window.GameOver = GameOver;
-  window.Cloud = Cloud;
-  window.game = new Game(ctx1, ctx2);
+  const backgroundMusic = new Audio("assets/sounds/Celebration+-+320bit.mp3");
+  const soundOn = document.getElementById("sound-on");
+  const soundOff = document.getElementById("sound-off");
+  const newGameButton = document.getElementById("new-game-button");
+  const points = document.getElementsByClassName("points-wrapper")[0];
+  const upperNav = document.getElementsByClassName("upper-nav")[0];
+  const splashPage = document.getElementById("opening-page");
+  const xButton = document.getElementsByClassName("x")[0];
+  let game;
+
+  newGameButton.addEventListener("click", e => {
+    e.preventDefault();
+    splashPage.style.display = "none";
+    canvas3.style.display = "block";
+    canvas2.style.display = "block";
+    canvas1.style.display = "block";
+    soundOn.style.display = "block";
+    points.style.display = "flex";
+    upperNav.style.display = "flex";
+    backgroundMusic.play();
+    game = new Game(ctx1, ctx2);
+    window.game = game;
+  });
+
+  xButton.addEventListener("click", e => {
+    e.preventDefault();
+    splashPage.style.display = "flex";
+    canvas3.style.display = "none";
+    canvas2.style.display = "none";
+    canvas1.style.display = "none";
+    soundOn.style.display = "none";
+    points.style.display = "none";
+    upperNav.style.display = "none";
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+    game.resetGameOver;
+  });
+  
+  soundOn.addEventListener("click", e => {
+    soundOn.style.display = "none";
+    soundOff.style.display = "block";
+    backgroundMusic.muted = true;
+  });
+  
+  soundOff.addEventListener("click", e => {
+    soundOff.style.display = "none";
+    soundOn.style.display = "block";
+    backgroundMusic.muted = false;
+  });
 
   let moveLeft = false;
   let moveRight = false;
@@ -76,5 +107,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
   });
   
-
 });

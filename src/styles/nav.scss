@@ -14,22 +14,28 @@
 }
 
 .upper-nav {
-  display: flex;
+  display: none;
+  // display: flex;
   position: absolute;
   width: 100%;
   justify-content: space-between;
 }
-.unmute {
+
+.sound-button {
+  display: none;
+}
+
+#sound-on, #sound-off {
   height: 50px;
   width: 50px;
   margin-right: 16px;
 }
 
-.pause {
-  height: 50px;
-  width: 50px;
-  margin-right: 16px;
-}
+// .pause {
+//   height: 50px;
+//   width: 50px;
+//   margin-right: 16px;
+// }
 
 .x {
   height: 50px;

@@ -1,0 +1,19 @@
+
+.instructions-modal-box {
+  display: none;
+}
+
+.display-instructions-modal {
+  display: block;
+  z-index: 20;
+  background: white;
+  width: 68vw;
+  height: auto;
+  position: absolute;
+  top: 460px;
+  border-radius: 16px;
+}
+
+.a-text {
+  font-size: 24px;
+}

@@ -1,5 +1,4 @@
 import Dragon from "./dragon";
-import MovingObject from "./moving_object";
 import Castle from "./castle";
 import Village from "./village";
 import Sheep from "./sheep";
@@ -22,6 +21,10 @@ class Game {
     this.dragon = new Dragon(ctx1);
     this.gameOver = false;
     this.totalPoints = 0;
+    this.fireNoise = new Audio("./assets/sounds/mixkit-fire-swoosh-burning-1328-[AudioTrimmer.com] (1).wav");
+    this.fireNoise.playbackRate = 1.5;
+    this.hitNoise = new Audio("./assets/sounds/mixkit-falling-hit-on-gravel-756.wav");
+    this.gameOverNoise = new Audio("./assets/sounds/mixkit-retro-arcade-game-over-470 (1).wav");
     this.animateDragon();
     this.blowFire();
     this.generateClouds();
@@ -96,7 +99,7 @@ changeStats(){
 
   generateClouds(){
     setInterval(() => {
-      new Cloud(ctx1);
+      new Cloud(this.ctx1);
     }, 5500);
   }
   
@@ -105,6 +108,7 @@ changeStats(){
       let obstacle = this.currentObstacles[i];
       const checkHitId = setInterval(() => {
         if (this.inHitZone(obstacle)){
+          this.hitNoise.play();
           this.gameOver = true;
           this.ifGameOver();
           clearInterval(checkHitId);
@@ -174,6 +178,7 @@ changeStats(){
         this.dragon.fire = true;
         this.ctx1.clearRect(this.dragon.xPos, this.dragon.yPos, 200, 200);
         this.dragon.draw();
+        this.fireNoise.play();
       }
     });
     document.addEventListener('keyup', e => {
@@ -205,11 +210,27 @@ changeStats(){
   ifGameOver(){
     if (this.gameOver === true){
       clearInterval(this.upgradeSpeed);
-      console.log('game over!');
       setTimeout(() => {
+        this.gameOverNoise.play();
         new GameOver(this.ctx1);
       }, 3000);
     }
+  }
+
+  resetGameOver(){
+    this.speed = 1;
+    this.increaseSize = 0.6;
+    this.frequency = 4000;
+    this.changeFreq = this.frequency;
+    this.currentTargets = [];
+    this.currentObstacles = [];
+    this.generateElementsId = null;
+    this.gameOver = false;
+    this.totalPoints = 0;
+    this.ctx1.clearRect(0, 0, 737, 720);
+    this.ctx2.clearRect(0, 0, 737, 720);
+    this.dragon = null;
+    // ctx3.clearRect(0, 0, 737, 720);
   }
 
 }
