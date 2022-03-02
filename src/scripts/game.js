@@ -1,9 +1,12 @@
 import Dragon from "./dragon";
+import MovingObject from "./moving_object";
 import Castle from "./castle";
 import Village from "./village";
 import Sheep from "./sheep";
 import Tree from "./tree";
 import Mountain from "./mountain";
+import GameOver from "./game_over";
+import Cloud from "./cloud";
 
 class Game {
   constructor(ctx1, ctx2){
@@ -18,8 +21,10 @@ class Game {
     this.generateElementsId = null;
     this.dragon = new Dragon(ctx1);
     this.gameOver = false;
+    this.totalPoints = 0;
     this.animateDragon();
     this.blowFire();
+    this.generateClouds();
     this.upgradeSpeed = setInterval(this.repeaterFunc.bind(this), this.frequency);
   }
 
@@ -32,6 +37,11 @@ repeaterFunc(){
     this.upgradeSpeed = setInterval(this.repeaterFunc.bind(this), this.frequency);
   }
 }
+
+  addPoints(){
+    const showPoints = document.getElementsByClassName("points")[0];
+    showPoints.innerHTML = `${this.totalPoints}`;
+  }
 
 changeStats(){
   if ((this.frequency <= 4000) && (this.frequency > 3800)){
@@ -83,6 +93,12 @@ changeStats(){
         this.currentObstacles.shift();
       }, this.frequency*2);
   }
+
+  generateClouds(){
+    setInterval(() => {
+      new Cloud(ctx1);
+    }, 5500);
+  }
   
   checkHitConditions(){
     for (let i = 0; i < this.currentObstacles.length; i++){
@@ -125,6 +141,8 @@ changeStats(){
           if (this.inFireZone(target)){
             target.hit = true;
             target.onFire();
+            this.totalPoints += target.points;
+            this.addPoints();
           }
         }
       });
@@ -188,6 +206,9 @@ changeStats(){
     if (this.gameOver === true){
       clearInterval(this.upgradeSpeed);
       console.log('game over!');
+      setTimeout(() => {
+        new GameOver(this.ctx1);
+      }, 3000);
     }
   }
 

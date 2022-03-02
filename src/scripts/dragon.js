@@ -1,4 +1,3 @@
-import Mountain from "./mountain";
 
 class Dragon {
   constructor(ctx){

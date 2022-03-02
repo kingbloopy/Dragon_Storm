@@ -5,6 +5,8 @@ import Village from "./scripts/village"
 import Sheep from "./scripts/sheep";
 import Tree from "./scripts/tree";
 import Mountain from "./scripts/mountain";
+import GameOver from "./scripts/game_over";
+import Cloud from "./scripts/cloud";
 
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log(`Yay, it's Dragon Time!`);
@@ -24,6 +26,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
   window.Sheep = Sheep;
   window.Tree = Tree;
   window.Mountain = Mountain;
+  window.GameOver = GameOver;
+  window.Cloud = Cloud;
   window.game = new Game(ctx1, ctx2);
 
   let moveLeft = false;

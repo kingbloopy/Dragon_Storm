@@ -11,6 +11,11 @@
   justify-content: center;
 }
 
+.very-bottom-layer {
+  // background-image: url("../assets/canvas_background/canvas.png");
+  height: 100vh;
+  background-size: cover;
+}
 .bottom-layer {
   background-image: url("../assets/canvas_background/canvas.png");
   height: 100vh;
@@ -29,4 +34,11 @@
 
 .fire-dragon {
   display: none;
+}
+
+.points-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
 }
