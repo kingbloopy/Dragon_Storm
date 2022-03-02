@@ -13,32 +13,9 @@ class Fire {
     this.spriteWidth = 468;
     this.spriteHeight = 498;
     this.currentFrame = 0;
-    // this.animate();
-    // this.drawFire();
   }
 
-  // drawFire(ctx){
-  //   console.log('hitting function');
-
-  //   // this.ctx.drawImage(this.sprite, this.pos[0], this.pos[1], this.xdim, this.ydim);
-  //   let col = this.currentFrame % 5;
-  //   let row = Math.floor(this.currentFrame / 5);
-
-  //   ctx.drawImage(
-  //     this.sprite,
-  //     col * this.spriteWidth,
-  //     row * this.spriteHeight,
-  //     this.spriteWidth,
-  //     this.spriteHeight,
-  //     this.pos[0],
-  //     this.pos[1],
-  //     this.xdim,
-  //     this.ydim
-  //   );
-  // }
-
   animate(){
-    // console.log('hitting function');
       this.currentFrame++;
 
       const maxFrame = 24;

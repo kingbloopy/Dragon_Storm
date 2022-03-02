@@ -14,7 +14,7 @@ class Tree extends MovingObject{
     super(ctx, speed);
     this.tree = trees[Math.floor(Math.random() * trees.length)];
     this.points = 2;
-    this.increaseSize = 0.3;
+    this.increaseSize = increaseSize - 0.35;
     this.move();
   }
 

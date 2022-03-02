@@ -12,53 +12,131 @@ class Game {
     this.speed = 1;
     this.increaseSize = 0.6;
     this.frequency = 4000;
+    this.changeFreq = this.frequency;
     this.currentTargets = [];
-    // this.frequency = 3000;
-    // this.speed = 3;
-    // this.increaseSize = 1.3;
+    this.currentObstacles = [];
+    this.generateElementsId = null;
     this.dragon = new Dragon(ctx1);
     this.gameOver = false;
     this.animateDragon();
     this.blowFire();
-    this.generateTargets();
+    this.upgradeSpeed = setInterval(this.repeaterFunc.bind(this), this.frequency);
   }
 
-  generateTargets(){
-    const categories = [Sheep, Tree, Castle, Village];
-    this.generateTargetsId = setInterval(() => {
+repeaterFunc(){
+  this.generateElements();
+  this.changeStats();
+  if (this.changeFreq !== this.frequency) {
+    clearInterval(this.upgradeSpeed);
+    this.frequency = this.changeFreq;
+    this.upgradeSpeed = setInterval(this.repeaterFunc.bind(this), this.frequency);
+  }
+}
+
+changeStats(){
+  if ((this.frequency <= 4000) && (this.frequency > 3800)){
+    this.changeFreq -= 50;
+    this.speed += 0.05;
+    this.increaseSize += 0.02;
+  } 
+  if ((this.frequency <= 3800) && (this.frequency > 3600)){
+    this.changeFreq -= 100;
+    this.speed += 0.05;
+    this.increaseSize += 0.02;
+  } 
+  if ((this.frequency <= 3600) && (this.frequency > 3000)){
+    this.changeFreq -= 200;
+    this.speed += 0.05;
+    this.increaseSize += 0.02;
+  } 
+  if ((this.frequency <= 3000) && (this.frequency > 2000)){
+    this.changeFreq -= 400;
+    this.speed += 0.05;
+    this.increaseSize += 0.02;
+  } 
+  if ((this.frequency <= 2000) && (this.frequency > 1000)){
+    this.changeFreq -= 100;
+    this.speed += 0.05;
+    this.increaseSize += 0.02;
+  } 
+  if ((this.frequency <= 1000) && (this.frequency > 700)){
+    this.changeFreq -= 30;
+    this.speed += 0.05;
+    this.increaseSize += 0.02;
+  } 
+}
+
+  generateElements(){
+    const categories = [Sheep, Tree, Castle, Village, Mountain];
       let randEle = categories[Math.floor(Math.random() * categories.length)]
       let element = new randEle(this.ctx2, this.speed, this.increaseSize);
-      this.currentTargets.push(element);
-      this.checkBurnConditions();
+      if (element instanceof Mountain){
+        this.currentObstacles.push(element)
+        this.checkHitConditions();
+      } else {
+        this.currentTargets.push(element);
+        this.checkBurnConditions();
+      }
 
       setTimeout(() => {
         this.currentTargets.shift();
+        this.currentObstacles.shift();
       }, this.frequency*2);
+  }
+  
+  checkHitConditions(){
+    for (let i = 0; i < this.currentObstacles.length; i++){
+      let obstacle = this.currentObstacles[i];
+      const checkHitId = setInterval(() => {
+        if (this.inHitZone(obstacle)){
+          this.gameOver = true;
+          this.ifGameOver();
+          clearInterval(checkHitId);
+        }
+      }, 50);
+    }
+  }
 
-    }, this.frequency);
+  inHitZone(obstacle){
+    const center = obstacle.centerPos;
+    const dragonHitZone = [
+      (this.dragon.centerPos[0] + 100),
+      (this.dragon.centerPos[0] - 100),
+      (this.dragon.centerPos[1] + 100),
+      (this.dragon.centerPos[1] - 100)
+    ];
+
+    if (
+      (center[0] <= dragonHitZone[0])
+      && (center[0] >= dragonHitZone[1])
+      && (center[1] <= dragonHitZone[2])
+      && (center[1] >= dragonHitZone[3])
+    ) {
+      return true;
+    }
+    return false;
   }
 
   checkBurnConditions(){
     for (let i = 0; i < this.currentTargets.length; i++){
-      let element = this.currentTargets[i];
+      let target = this.currentTargets[i];
       document.addEventListener('keydown', (e) => {
         if (e.code === 'Space'){
-          if (this.inFireZone(element)){
-            element.hit = true;
-            element.onFire();
+          if (this.inFireZone(target)){
+            target.hit = true;
+            target.onFire();
           }
         }
       });
     }
   }
 
-  inFireZone(element) {
-    const target = element.centerPos;
+  inFireZone(target) {
     const targetZone = [
-      (target[0] + element.xdim / 3),
-      (target[0] - element.xdim / 3),
-      (target[1] + element.ydim / 2),
-      (target[1] - element.xdim / 2)
+      (target.centerPos[0] + target.xdim / 3),
+      (target.centerPos[0] - target.xdim / 3),
+      (target.centerPos[1] + target.ydim / 2),
+      (target.centerPos[1] - target.xdim / 2)
     ];
 
     if (
@@ -104,6 +182,13 @@ class Game {
     this.dragon.flyHoriz();
     this.dragon.flyVert();
     requestAnimationFrame(this.animateDragon.bind(this));
+  }
+
+  ifGameOver(){
+    if (this.gameOver === true){
+      clearInterval(this.upgradeSpeed);
+      console.log('game over!');
+    }
   }
 
 }

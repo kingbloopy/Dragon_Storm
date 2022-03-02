@@ -9,27 +9,11 @@ class Mountain {
     this.xdim = 17;
     this.ydim = 10;
     this.pos = Mountain.getRandPos();
-    // this.xdim = 200;
-    // this.ydim = 180;
-    this.hit = false;
-    // this.pos = [300, 200]
     this.centerPos = [
       (this.pos[0] + (this.xdim / 2)),
       (this.pos[1] + (this.ydim / 2))
     ];
     this.move();
-    // this.draw();
-  }
-
-    findCenter(){
-    this.ctx.fillStyle = 'pink';
-    this.ctx.fillRect(
-      this.centerPos[0],
-      this.centerPos[1],
-      5, 5
-      // this.xdim/2,
-      // this.ydim/2
-      );
   }
 
   static getRandPos() {

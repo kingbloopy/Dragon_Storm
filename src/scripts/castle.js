@@ -17,7 +17,6 @@ class Castle extends MovingObject {
     this.castle = castles[Math.floor(Math.random() * castles.length)];
     this.points = 8;
     this.move();
-    // this.draw();
   }
   
   draw(){
