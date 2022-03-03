@@ -40,7 +40,8 @@ In addition, the game will include:
 
 ## Wireframes
 
-<img src="./assets/mock_layout.png" alt="logo" width="700"/>
+<img src="./assets/Screen Shot 2022-03-02 at 9.50.15 PM.png" width="700">
+<img src="./assets/Screen Shot 2022-03-02 at 9.51.23 PM.png" width="700">
 
 - Buttons on the top right corner for mute/unmute, play/pause, and exit game
 - Logo in top left will bring you back to the home page with main logo and instructions module

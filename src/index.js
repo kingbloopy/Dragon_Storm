@@ -22,12 +22,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const xButton = document.getElementsByClassName("x")[0];
   const startSound = new Audio("./assets/sounds/Button-click-sound.mp3");
   const soundBtnSound = new Audio("./assets/sounds/mixkit-select-click-1109.wav");
+  const myPages = document.getElementsByClassName("my-pages")[0];
   let game;
   
   newGameButton.addEventListener("click", e => {
     e.preventDefault();
     startSound.play();
     splashPage.style.display = "none";
+    myPages.style.display = "none";
     canvas3.style.display = "block";
     canvas2.style.display = "block";
     canvas1.style.display = "block";
@@ -43,6 +45,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   xButton.addEventListener("click", e => {
     e.preventDefault();
     splashPage.style.display = "flex";
+    myPages.style.display = "flex";
     canvas3.style.display = "none";
     canvas2.style.display = "none";
     canvas1.style.display = "none";

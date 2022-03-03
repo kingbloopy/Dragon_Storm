@@ -45,8 +45,8 @@
   flex-direction: column;
   position: absolute;
   align-items: center;
-  right: 70px;
-  bottom: 70px;
+  right: 68px;
+  bottom: 80px;
   animation: pulse 2s infinite;
   @media (max-width: 1100px){
     right: 30px;
@@ -55,7 +55,7 @@
 }
 
 .points {
-  font-size: 35px;
+  font-size: 45px;
   color: white;
   font-family: 'Bebas Neue', Impact;
   @media (max-width: 1100px){
@@ -78,8 +78,8 @@
 }
 
 .burn-points {
-  width: 175px;
-  height: 30px;
+  width: 195px;
+  height: 35px;
   padding-bottom: 10px;
   @media (max-width: 1100px){
     width: 95px;

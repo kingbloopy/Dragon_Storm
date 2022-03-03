@@ -39,6 +39,7 @@
 .sound-on-wrapper:hover, .sound-off-wrapper:hover, .x-wrapper:hover {
   transform: scale(1.2);
   transition: all ease-in-out 1s;
+  cursor: pointer;
 }
 
 .right-nav {
