@@ -128,6 +128,7 @@ class Game {
       const checkHitId = setInterval(() => {
         if (this.inHitZone(obstacle)){
           this.hitNoise.play();
+          this.dragon.endMove();
           this.gameOver = true;
           this.ifGameOver();
           clearInterval(checkHitId);
