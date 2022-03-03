@@ -1,3 +1,253 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}table{border-collapse:collapse;border-spacing:0}.logo{height:112px;width:138px;margin-left:6%;margin-top:3%}@media(max-width: 1100px){.logo{height:62px;width:80px;margin-left:4%;margin-top:2%}}.upper-nav{display:none;position:absolute;width:100%;justify-content:space-between}.sound-button{display:none}#sound-on,#sound-off{height:50px;width:50px;margin-right:16px}.x{height:50px;width:50px;margin-right:16px}.right-nav{margin-right:40px;margin-top:20px;display:flex}@media(max-width: 1200px){.right-nav{flex-direction:column}.right-nav img{margin-bottom:20px}}.background{background-image:url("../assets/canvas_background/background.png");background-size:cover;width:100%;height:100vh}.canvas-wrapper{display:flex;justify-content:center}.very-bottom-layer{height:100vh;background-size:cover;display:none}.bottom-layer{background-image:url("../assets/canvas_background/canvas.png");height:100vh;background-size:cover;position:absolute;display:none}.top-layer{height:100vh;background-size:cover;position:absolute;display:none}.dragon{display:none}.fire-dragon{display:none}.points-wrapper{display:none;flex-direction:column;position:absolute;align-items:center;right:70px;bottom:70px;animation:pulse 2s infinite}@media(max-width: 1100px){.points-wrapper{right:30px;bottom:25px}}.points{font-size:35px;color:#fff;font-family:"Bebas Neue",Impact}@media(max-width: 1100px){.points{font-size:20px}}@keyframes pulse{0%{transform:scale(0.95)}70%{transform:scale(1)}100%{transform:scale(0.95)}}.burn-points{width:175px;height:30px;padding-bottom:10px}@media(max-width: 1100px){.burn-points{width:95px;height:15px;padding-bottom:6px}}#opening-page{height:720px;width:737px;height:100vh;z-index:3;position:absolute;background-size:cover;background-color:rgba(0,226,234,.5);display:flex;flex-direction:column;align-items:center;justify-content:space-around}.opening-logo{height:450px;width:600px;margin-top:40px}#new-game-button,#instructions{height:80px;width:200px;margin-bottom:50px;animation:pulse 2s infinite}@keyframes pulse{0%{transform:scale(0.95)}70%{transform:scale(1)}100%{transform:scale(0.95)}}.instructions-modal-box{display:none}.display-instructions-modal{display:block;z-index:20;background:#fff;width:68vw;height:auto;position:absolute;top:460px;border-radius:16px}.a-text{font-size:24px}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
-/*# sourceMappingURL=main.css.map*/
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.logo {
+  height: 112px;
+  width: 138px;
+  margin-left: 6%;
+  margin-top: 3%;
+}
+@media (max-width: 1100px) {
+  .logo {
+    height: 62px;
+    width: 80px;
+    margin-left: 4%;
+    margin-top: 2%;
+  }
+}
+
+.upper-nav {
+  display: none;
+  position: absolute;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.sound-button {
+  display: none;
+}
+
+#sound-on, #sound-off {
+  height: 50px;
+  width: 50px;
+  margin-right: 16px;
+}
+
+.x {
+  height: 50px;
+  width: 50px;
+  margin-right: 16px;
+}
+
+.right-nav {
+  margin-right: 40px;
+  margin-top: 20px;
+  display: flex;
+}
+@media (max-width: 1200px) {
+  .right-nav {
+    flex-direction: column;
+  }
+  .right-nav img {
+    margin-bottom: 20px;
+  }
+}
+
+.background {
+  background-image: url("../assets/canvas_background/background.png");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.canvas-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.very-bottom-layer {
+  height: 100vh;
+  background-size: cover;
+  display: none;
+}
+
+.bottom-layer {
+  background-image: url("../assets/canvas_background/canvas.png");
+  height: 100vh;
+  background-size: cover;
+  position: absolute;
+  display: none;
+}
+
+.top-layer {
+  height: 100vh;
+  background-size: cover;
+  position: absolute;
+  display: none;
+}
+
+.dragon {
+  display: none;
+}
+
+.fire-dragon {
+  display: none;
+}
+
+.points-wrapper {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  right: 70px;
+  bottom: 70px;
+  animation: pulse 2s infinite;
+}
+@media (max-width: 1100px) {
+  .points-wrapper {
+    right: 30px;
+    bottom: 25px;
+  }
+}
+
+.points {
+  font-size: 35px;
+  color: white;
+  font-family: "Bebas Neue", Impact;
+}
+@media (max-width: 1100px) {
+  .points {
+    font-size: 20px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+.burn-points {
+  width: 175px;
+  height: 30px;
+  padding-bottom: 10px;
+}
+@media (max-width: 1100px) {
+  .burn-points {
+    width: 95px;
+    height: 15px;
+    padding-bottom: 6px;
+  }
+}
+
+#opening-page {
+  height: 720px;
+  width: 737px;
+  height: 100vh;
+  z-index: 3;
+  position: absolute;
+  background-size: cover;
+  background-color: rgba(0, 226, 234, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.opening-logo {
+  height: 450px;
+  width: 600px;
+  margin-top: 40px;
+}
+
+#new-game-button, #instructions {
+  height: 80px;
+  width: 200px;
+  margin-bottom: 50px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+.instructions-modal-box {
+  display: none;
+}
+
+.display-instructions-modal {
+  display: block;
+  z-index: 20;
+  background: white;
+  width: 68vw;
+  height: auto;
+  position: absolute;
+  top: 460px;
+  border-radius: 16px;
+}
+
+.a-text {
+  font-size: 24px;
+}

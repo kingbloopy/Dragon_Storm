@@ -19,7 +19,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const upperNav = document.getElementsByClassName("upper-nav")[0];
   const splashPage = document.getElementById("opening-page");
   const xButton = document.getElementsByClassName("x")[0];
+  // let game = new Game(ctx1, ctx2);
   let game;
+  // window.game = game;
 
   newGameButton.addEventListener("click", e => {
     e.preventDefault();
@@ -32,9 +34,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     upperNav.style.display = "flex";
     backgroundMusic.play();
     game = new Game(ctx1, ctx2);
-    window.game = game;
+    game.startGame();
   });
-
+  
   xButton.addEventListener("click", e => {
     e.preventDefault();
     splashPage.style.display = "flex";
@@ -42,11 +44,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     canvas2.style.display = "none";
     canvas1.style.display = "none";
     soundOn.style.display = "none";
+    soundOff.style.display = "none";
     points.style.display = "none";
     upperNav.style.display = "none";
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
-    game.resetGameOver;
+    game.resetGameOver();
   });
   
   soundOn.addEventListener("click", e => {
