@@ -12,7 +12,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const canvas3 = document.getElementsByClassName('very-bottom-layer')[0];
   const ctx3 = canvas3.getContext('2d');
 
-  const backgroundMusic = new Audio("assets/sounds/Celebration+-+320bit.mp3");
+  // const backgroundMusic = new Audio("assets/sounds/Celebration+-+320bit.mp3");
+  const backgroundMusic = new Audio("assets/sounds/background-music.mp3");
   const soundOn = document.getElementById("sound-on");
   const soundOff = document.getElementById("sound-off");
   const newGameButton = document.getElementById("new-game-button");
