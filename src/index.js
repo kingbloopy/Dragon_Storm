@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const upperNav = document.getElementsByClassName("upper-nav")[0];
   const splashPage = document.getElementById("opening-page");
   const xButton = document.getElementsByClassName("x")[0];
-  const startSound = new Audio("./assets/sounds/Button-click-sound.mp3");
+  const startSound = new Audio("./assets/sounds/Button-click-sound (mp3cut.net).mp3");
   const soundBtnSound = new Audio("./assets/sounds/mixkit-select-click-1109.wav");
   const myPages = document.getElementsByClassName("my-pages")[0];
   let game;

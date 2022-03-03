@@ -150,8 +150,8 @@ class Game {
       const dragonHitZone = [
         (this.dragon.centerPos[0] + 100),
         (this.dragon.centerPos[0] - 100),
-        (this.dragon.centerPos[1] + 100),
-        (this.dragon.centerPos[1] - 100)
+        (this.dragon.centerPos[1] + 80),
+        (this.dragon.centerPos[1] - 80)
       ];
   
       if (
@@ -256,6 +256,7 @@ class Game {
   ifGameOver(){
     if (this.gameOver === true){
       clearInterval(this.upgradeSpeed);
+      clearInterval(this.generateGrassId);
       setTimeout(() => {
         this.gameOverNoise.play();
         this.GOpopup.popup();

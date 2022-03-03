@@ -48,26 +48,44 @@
   font-family: 'Teko', sans-serif;
   font-size: 24px;
   color: rgb(9, 99, 101);
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .header {
   font-family: 'Teko', sans-serif;
   color: rgb(9, 99, 101);
-  font-size: 24px;
 }
 
 .text-wrapper h1 {
-  font-size: 28px;
+  font-size: 24px;
+  padding-left: 24px;
 }
 
-.b-text > p, .c-text > p, .c-text > p, .d-text > li, .e-text > li {
-  font-size: 28px;
+.d-text > li, .e-text > li {
+  font-size: 26px;
   font-weight: 500;
   margin-bottom: 20px;
-  margin-top: 6px;
+  margin-top: 10px;
+  line-height: 10px;
+  list-style-type: circle;
 }
 
 strong {
   font-weight: 500;
+}
+
+.smaller {
+  font-size: 14px;
+}
+
+#key-img{
+  height: 70px;
+  width: 100px;
+  margin-top: 8px;
+}
+
+#space-img {
+  height: 48px;
+  width: 110px;
+  margin-top: 4px;
 }

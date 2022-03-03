@@ -3,7 +3,7 @@ import MovingObject from "./moving_object";
 const barn = new Image();
 barn.src = "./assets/objects/barn.png";
 const houses = new Image();
-houses.src = "./assets/objects/village.png";
+houses.src = "../assets/objects/village.png";
 
 const structures = [barn, houses];
 
