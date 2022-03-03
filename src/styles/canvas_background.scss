@@ -12,14 +12,12 @@
 }
 
 .very-bottom-layer {
-  // background-image: url("../assets/canvas_background/canvas.png");
+  background-image: url("../assets/canvas_background/canvas.png");
   height: 100vh;
   background-size: cover;
-  // background-color: black;
   display: none;
 }
 .bottom-layer {
-  background-image: url("../assets/canvas_background/canvas.png");
   height: 100vh;
   background-size: cover;
   position: absolute;

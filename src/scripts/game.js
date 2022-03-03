@@ -6,11 +6,13 @@ import Tree from "./tree";
 import Mountain from "./mountain";
 import GameOver from "./game_over";
 import Cloud from "./cloud";
+import Grass from "./grass";
 
 class Game {
-  constructor(ctx1, ctx2){
+  constructor(ctx1, ctx2, ctx3){
     this.ctx1 = ctx1;
     this.ctx2 = ctx2;
+    this.ctx3 = ctx3;
     this.speed = 1;
     this.increaseSize = 0.6;
     this.frequency = 4000;
@@ -18,7 +20,6 @@ class Game {
     this.currentTargets = [];
     this.currentObstacles = [];
     this.generateElementsId = null;
-    // this.dragon = new Dragon(ctx1);
     this.dragon = null;
     this.gameOver = false;
     this.totalPoints = 0;
@@ -26,12 +27,9 @@ class Game {
     this.fireNoise.playbackRate = 1.5;
     this.hitNoise = new Audio("./assets/sounds/mixkit-falling-hit-on-gravel-756.wav");
     this.gameOverNoise = new Audio("./assets/sounds/mixkit-retro-arcade-game-over-470 (1).wav");
-    // this.animateDragon();
-    // this.blowFire();
-    // this.generateClouds();
-    // this.upgradeSpeed = setInterval(this.repeaterFunc.bind(this), this.frequency);
     this.upgradeSpeed = null;
     this.generateCloudsId = null;
+    this.generateGrassId = null;
     this.GOpopup = null;
   }
   
@@ -42,6 +40,7 @@ class Game {
       this.blowFire();
     }
     this.generateClouds();
+    this.generateGrass();
     this.upgradeSpeed = setInterval(this.repeaterFunc.bind(this), this.frequency);
     this.GOpopup = new GameOver(this.ctx1);
   }
@@ -119,6 +118,14 @@ class Game {
       this.generateCloudsId = setInterval(() => {
         new Cloud(this.ctx1);
       }, 5500);
+    }
+  }
+
+  generateGrass(){
+    if (this.gameOver === false){
+      this.generateGrassId = setInterval(() => {
+        new Grass(this.ctx3);
+      }, 100);
     }
   }
   
@@ -222,13 +229,19 @@ class Game {
     if (this.gameOver === false){
       this.dragon.flyLeft = moveLeft;
       this.dragon.flyRight = moveRight;
+    } else {
+      this.dragon.flyLeft = false;
+      this.dragon.flyRight = false;
     }
   }
   
   moveVert(moveUp, moveDown){
     if (this.gameOver === false){
       this.dragon.flyUp = moveUp;
-      this.dragon.flyDown = moveDown
+      this.dragon.flyDown = moveDown;
+    } else {
+      this.dragon.flyUp = false;
+      this.dragon.flyDown = false;
     }
   }
   
@@ -254,6 +267,7 @@ class Game {
     this.gameOver = true;
     clearInterval(this.upgradeSpeed);
     clearInterval(this.generateCloudsId);
+    clearInterval(this.generateGrassId);
     this.totalPoints = 0;
     this.addPoints();
     this.speed = 1;
@@ -270,7 +284,7 @@ class Game {
     this.generateCloudsId = null;
     this.ctx1.clearRect(0, 0, 737, 720);
     this.ctx2.clearRect(0, 0, 737, 720);
-    // ctx3.clearRect(0, 0, 737, 720);
+    this.ctx3.clearRect(0, 0, 737, 720);
   }
 
 }

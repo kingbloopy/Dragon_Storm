@@ -42,10 +42,9 @@
 }
 
 .right-nav {
-  margin-right: 60px;
+  margin-right: 40px;
   margin-top: 40px;
   display: flex;
-  gap: 10px;
   @media (max-width: 1200px){
     flex-direction: column;
     img {

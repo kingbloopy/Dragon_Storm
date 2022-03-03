@@ -1,0 +1,26 @@
+
+#linked {
+  height: 45px;
+  width: 60px;
+}
+
+#git {
+  height: 45px;
+  width: 50px;
+}
+
+.my-pages {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  right: 24px;
+  bottom: 20px;
+  gap: 12px;
+}
+
+.linked-wrapper:hover, .git-wrapper:hover {
+  transform: scale(1.2);
+  transition: all ease-in-out 1s;
+}
+

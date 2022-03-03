@@ -1,5 +1,6 @@
 
 import Game from "./scripts/game";
+import Grass from "./scripts/grass";
 
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log(`Yay, it's Dragon Time!`);
@@ -19,11 +20,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const upperNav = document.getElementsByClassName("upper-nav")[0];
   const splashPage = document.getElementById("opening-page");
   const xButton = document.getElementsByClassName("x")[0];
-  // let game = new Game(ctx1, ctx2);
+  const startSound = new Audio("./assets/sounds/Button-click-sound.mp3");
+  const soundBtnSound = new Audio("./assets/sounds/mixkit-select-click-1109.wav");
   let game;
   
   newGameButton.addEventListener("click", e => {
     e.preventDefault();
+    startSound.play();
     splashPage.style.display = "none";
     canvas3.style.display = "block";
     canvas2.style.display = "block";
@@ -32,7 +35,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     points.style.display = "flex";
     upperNav.style.display = "flex";
     backgroundMusic.play();
-    game = new Game(ctx1, ctx2);
+    game = new Game(ctx1, ctx2, ctx3);
     window.game = game;
     game.startGame();
   });
@@ -55,12 +58,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
   soundOn.addEventListener("click", e => {
     soundOn.style.display = "none";
     soundOff.style.display = "block";
+    soundBtnSound.play();
     backgroundMusic.muted = true;
   });
   
   soundOff.addEventListener("click", e => {
     soundOff.style.display = "none";
     soundOn.style.display = "block";
+    soundBtnSound.play();
     backgroundMusic.muted = false;
   });
 
