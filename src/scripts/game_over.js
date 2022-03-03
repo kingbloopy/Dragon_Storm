@@ -8,7 +8,15 @@ class GameOver {
     this.pos = [275, 150];
     this.xdim = 200;
     this.ydim = 50;
+    this.animateId = null;
+  }
+
+  popup(){
     this.move();
+  }
+
+  remove(){
+    cancelAnimationFrame(this.animateId);
   }
 
   draw(){
@@ -31,7 +39,7 @@ class GameOver {
     }
 
     this.draw();
-    requestAnimationFrame(this.move.bind(this));
+    this.animateId = requestAnimationFrame(this.move.bind(this));
   }
 }
 

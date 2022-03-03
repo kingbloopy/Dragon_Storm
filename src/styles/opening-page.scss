@@ -26,6 +26,17 @@
   animation: pulse 2s infinite;
 }
 
+.buttons-wrapper {
+  display: flex;
+  gap: 38px;
+  margin-bottom: 16px;
+}
+
+.new-wrapper:hover, .inst-wrapper:hover {
+  transform: scale(1.2);
+  transition: all ease-in-out 1s;
+}
+
 @keyframes pulse {
 	0% {
 		transform: scale(0.95);

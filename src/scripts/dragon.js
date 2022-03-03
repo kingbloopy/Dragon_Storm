@@ -36,6 +36,16 @@ class Dragon {
     }
   }
 
+  endMove(){
+    if (this.yPos < 780){
+      this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
+      this.aimPos = [(this.xPos + 87), (this.yPos - 10)];
+      this.yPos += 2;
+      this.draw();
+    }
+    requestAnimationFrame(this.endMove.bind(this));
+  }
+
   flyHoriz() {
     if (this.flyLeft && this.xPos >= 0){
       this.ctx.clearRect(this.xPos, this.yPos, 200, 200);
