@@ -121,6 +121,7 @@ This game was implemented using:
 
   - Allowing the user to choose which color dragon before starting the game
   - Allowing the user to choose a night theme in addition to the daytime theme
+  - Make dragon a moving sprite character
   - Adding more dangerous obstacles for the Dragon to avoid
 
 ---
