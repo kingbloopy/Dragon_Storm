@@ -4,6 +4,7 @@
 <img src="./assets/upper_nav/logo.png" alt="logo" width="500"/>
 
 ### Play the live demo here: https://kingbloopy.github.io/Dragon_Storm/
+#### (For best results, please use Google Chrome)
 As you fly over the span of a green medieval countryside, signs of human civilization will begin to appear from the horizon. Your dragon duties include burning down as many structures/targets as you can, for as long as you can. As you continue to soar and light up the countryside with fire, the dragon will gradually fly faster and faster from excitement, causing it to become more difficult to fly and aim. With this in mind, you must also avoid the dangerous mountains that will hurt the dragon and end the game if you fly into one!
 
 
